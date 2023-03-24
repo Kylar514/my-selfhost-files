@@ -12,7 +12,7 @@ services:
       - WebUI\CSRFProtection=false #this prevents 'unauthorized' error when accessing gui
       - WebUI\AuthSubnetWhitelist=192.168.86.0/24, 172.26.0.1/24 #this bypasses user & password requests on specific subnets
     volumes:
-      - /volume1/docker/QBittorrent/config:/config
-      - /volume1/Primary/data/torrents:/data/torrents
+      - /YOURPATHHERE:/config
+      - /YOURPATHHERE:/data/torrents
     restart: unless-stopped
     network_mode: "container:gluetun_gluetun_1" #this points to VPN.
