@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID= #find your user ID
+      - PGID= #find your group ID associated with user
+      - TZ=America/New_York 
+      - WEBUI_PORT=8080 #qbittorrent is very fussy about staying on 8080
+      - WebUI\HostHeaderValidation=false #this prevents 'unauthorized' error when accessing gui
+      - WebUI\CSRFProtection=false #this prevents 'unauthorized' error when accessing gui
+      - WebUI\AuthSubnetWhitelist=192.168.86.0/24, 172.26.0.1/24 #this bypasses user & password requests on specific subnets
+    volumes:
+      - /volume1/docker/QBittorrent/config:/config
+      - /volume1/Primary/data/torrents:/data/torrents
+    restart: unless-stopped
+    network_mode: "container:gluetun_gluetun_1" #this points to VPN.
