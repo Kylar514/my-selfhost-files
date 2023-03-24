@@ -6,7 +6,7 @@ services:
     environment:
       - PUID= #find your user ID
       - PGID= #find your group ID associated with user
-      - TZ=America/New_York 
+      - TZ= #google docker timezones to find your TZ
       - WEBUI_PORT=8080 #qbittorrent is very fussy about staying on 8080
       - WebUI\HostHeaderValidation=false #this prevents 'unauthorized' error when accessing gui
       - WebUI\CSRFProtection=false #this prevents 'unauthorized' error when accessing gui
