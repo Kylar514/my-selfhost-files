@@ -15,4 +15,4 @@ services:
       - /YOURPATHHERE:/config
       - /YOURPATHHERE:/data/torrents
     restart: unless-stopped
-    network_mode: "container:gluetun_gluetun_1" #this points to VPN.
+    network_mode: "container:YOUR_CONTAINER_NAME_HERE" #this points to VPN.
