@@ -15,8 +15,10 @@ services:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3360
       DB_MYSQL_USER: "npm" #change user and pass
-      DB_MYSQL_PASSWORD: "PASSWORD"  #change user and pass
+      DB_MYSQL_PASSWORD: "nginxproxymanager"  #change user and pass
       DB_MYSQL_NAME: "npm" #change user and pass
+      PUID: 1026
+      PGID: 100
       # Uncomment this if you want to change the location of 
       # the SQLite DB file within the container
       # DB_SQLITE_FILE: "/data/database.sqlite"
@@ -40,10 +42,12 @@ services:
     ports:
       - '3360:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: 'PASSWORD' #change user and pass
+      MYSQL_ROOT_PASSWORD: 'nginxproxymanager' #change user and pass
       MYSQL_DATABASE: 'npm'
       MYSQL_USER: 'npm'
-      MYSQL_PASSWORD: 'PASSWORD' #change user and pass
+      MYSQL_PASSWORD: 'nginxproxymanager' #change user and pass
+      PUID: 1026
+      PGID: 100
     volumes:
       - /volume1/docker/mariadb/mysql:/var/lib/mysql
     networks:
